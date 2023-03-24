@@ -205,6 +205,10 @@ img {
 .Button:focus {
   background-color: #303f9f;
 }
+.ButtonDiv {
+  text-align: center;
+  margin-top: 15px;
+}
 .loader {
   position: fixed;
   top: 50%;

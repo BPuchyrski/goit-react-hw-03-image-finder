@@ -2,7 +2,14 @@ const { Component } = require('react');
 
 class Button extends Component {
   render() {
-    return <button>Load more</button>;
+    const { onClick } = this.props;
+    return (
+      <div className="ButtonDiv">
+        <button onClick={onClick} className="Button">
+          Load more
+        </button>
+      </div>
+    );
   }
 }
 
