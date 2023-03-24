@@ -3,7 +3,7 @@ const { Component } = require('react');
 
 class ImageGallery extends Component {
   render() {
-    const { photos } = this.props;
+    const { photos, bigPhoto } = this.props;
     return (
       <ul className="ImageGallery">
         {photos.map(image => {
@@ -13,6 +13,7 @@ class ImageGallery extends Component {
               imageURL={image.webformatURL}
               imageLarge={image.largeImageURL}
               imageTags={image.tags}
+              onClick={bigPhoto}
             ></ImageGalleryItem>
           );
         })}

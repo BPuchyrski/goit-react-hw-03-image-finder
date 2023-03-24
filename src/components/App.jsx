@@ -4,6 +4,7 @@ import ImageGallery from './imageGallery/ImageGallery';
 import Button from './button/Button';
 import { Component } from 'react';
 import axios from 'axios';
+import Modal from './modal/Modal';
 
 // const apiKey = '33158907-0652e41e9f508e65904cd564d';
 
@@ -14,21 +15,13 @@ export class App extends Component {
     page: 1,
     inputValue: '',
     isModalOn: false,
-    test: '',
+    bigImageModal: '',
   };
-
-  // async componentDidMount() {
-  //   const response = await axios.get(
-  //     'https://pixabay.com/api/?q=cat&page=1&key=33158907-0652e41e9f508e65904cd564d&image_type=photo&orientation=horizontal&per_page=12'
-  //   );
-  //   console.log(response.data.hits);
-  // }
 
   getInput = async e => {
     e.preventDefault();
     this.setState({ isLoaderOn: true });
     let inputValue = e.target.elements.searchFormInput.value;
-    // let page = this.state.page;
     if (inputValue === '' || this.state.inputValue === inputValue) {
       this.setState({ isLoaderOn: false });
     } else {
@@ -59,19 +52,53 @@ export class App extends Component {
     });
   };
 
-  showModal = e => {
+  modalToggle = e => {
     this.setState(prev => ({ isModalOn: !prev.isModalOn }));
-    console.log(e.target);
   };
 
+  getBigImg = e => {
+    this.setState({ bigImageModal: e.target.name });
+    this.modalToggle();
+    console.log(this.state.bigImageModal);
+  };
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  handleKeyDown = e => {
+    if (e.key === 'Escape' && this.state.isModalOn) {
+      this.modalToggle();
+    }
+  };
+
+  closeModal = e => {
+    if (e.target.attributes[0].value === 'Overlay') {
+      this.modalToggle();
+    }
+    console.log(e.target.attributes[0].value);
+  };
   render() {
     return (
       <div>
         <Searchbar onSubmit={this.getInput}></Searchbar>
         {this.state.isLoaderOn && <Loader></Loader>}
-        <ImageGallery photos={this.state.photos}></ImageGallery>
+        <ImageGallery
+          bigPhoto={this.getBigImg}
+          photos={this.state.photos}
+        ></ImageGallery>
         {this.state.photos.length > 0 && (
           <Button onClick={this.loadMore}></Button>
+        )}
+        {this.state.isModalOn && (
+          <Modal
+            modalFunction={this.closeModal}
+            image={this.state.bigImageModal}
+          ></Modal>
         )}
       </div>
     );
