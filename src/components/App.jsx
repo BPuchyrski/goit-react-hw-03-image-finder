@@ -13,6 +13,8 @@ export class App extends Component {
     photos: [],
     page: 1,
     inputValue: '',
+    isModalOn: false,
+    test: '',
   };
 
   // async componentDidMount() {
@@ -34,7 +36,7 @@ export class App extends Component {
       const response = await axios.get(
         `https://pixabay.com/api/?q=${inputValue}&page=${this.state.page}&key=33158907-0652e41e9f508e65904cd564d&image_type=photo&orientation=horizontal&per_page=12`
       );
-      const newPhotos = [...this.state.photos, ...response.data.hits];
+      const newPhotos = [...response.data.hits];
       this.setState({
         photos: newPhotos,
         isLoaderOn: false,
@@ -55,6 +57,11 @@ export class App extends Component {
       photos: newPhotos,
       isLoaderOn: false,
     });
+  };
+
+  showModal = e => {
+    this.setState(prev => ({ isModalOn: !prev.isModalOn }));
+    console.log(e.target);
   };
 
   render() {
