@@ -6,7 +6,7 @@ class Modal extends Component {
   render() {
     const { image, modalFunction } = this.props;
     return (
-      <div onClick={modalFunction} className={css.Overlay}>
+      <div onClick={modalFunction} className={css.Overlay} name = 'overlay'>
         <div className={css.Modal}>
           <img src={image} alt="ModalImage" />
         </div>

@@ -77,10 +77,10 @@ export class App extends Component {
   };
 
   closeModal = e => {
-    if (e.target.attributes[0].value === 'Modal_Overlay__8IHYZ') {
+    if (e.target.attributes[1].value === 'overlay') {
       this.modalToggle();
     }
-    console.log(e.target.attributes[0].value);
+    console.log(e.target.attributes[1].value);
   };
   render() {
     return (
