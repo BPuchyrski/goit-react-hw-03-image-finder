@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const { Component } = require('react');
 
 class Modal extends Component {
@@ -13,3 +14,8 @@ class Modal extends Component {
   }
 }
 export default Modal;
+
+Modal.propTypes = {
+  image: PropTypes.string,
+  modalFunction: PropTypes.func
+}

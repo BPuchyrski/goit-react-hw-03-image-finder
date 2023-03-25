@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const { Component } = require('react');
 
 class ImageGalleryItem extends Component {
@@ -17,3 +18,10 @@ class ImageGalleryItem extends Component {
 }
 
 export default ImageGalleryItem;
+
+ImageGalleryItem.propTypes = {
+  imageURL: PropTypes.string,
+  imageTags: PropTypes.string,
+  onClick: PropTypes.func,
+  imageLarge: PropTypes.string
+}

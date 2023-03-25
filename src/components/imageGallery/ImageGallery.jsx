@@ -1,4 +1,5 @@
 import ImageGalleryItem from 'components/imageGalleryItem/ImageGalleryItem';
+import PropTypes from 'prop-types';
 const { Component } = require('react');
 
 class ImageGallery extends Component {
@@ -23,3 +24,8 @@ class ImageGallery extends Component {
 }
 
 export default ImageGallery;
+
+ImageGallery.propTypes = {
+  photos: PropTypes.array,
+  bigPhoto: PropTypes.func
+}
