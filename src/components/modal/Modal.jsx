@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import css from './Modal.module.css'
 const { Component } = require('react');
 
 class Modal extends Component {
   render() {
     const { image, modalFunction } = this.props;
     return (
-      <div onClick={modalFunction} className="Overlay">
-        <div className="Modal">
+      <div onClick={modalFunction} className={css.Overlay}>
+        <div className={css.Modal}>
           <img src={image} alt="ModalImage" />
         </div>
       </div>

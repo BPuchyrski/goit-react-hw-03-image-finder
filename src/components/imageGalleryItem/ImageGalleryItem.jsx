@@ -1,3 +1,4 @@
+import css from './ImageGalleryItem.module.css'
 import PropTypes from 'prop-types';
 const { Component } = require('react');
 
@@ -5,9 +6,9 @@ class ImageGalleryItem extends Component {
   render() {
     const { imageURL, imageTags, onClick, imageLarge } = this.props;
     return (
-      <li onClick={onClick} className="ImageGalleryItem">
+      <li onClick={onClick} className={css.ImageGalleryItem}>
         <img
-          className="ImageGalleryItem-image"
+          className={css.ImageGalleryItemImage}
           src={imageURL}
           alt={imageTags}
           name={imageLarge}

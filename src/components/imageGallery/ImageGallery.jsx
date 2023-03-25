@@ -1,3 +1,4 @@
+import css from './ImageGallery.module.css'
 import ImageGalleryItem from 'components/imageGalleryItem/ImageGalleryItem';
 import PropTypes from 'prop-types';
 const { Component } = require('react');
@@ -6,7 +7,7 @@ class ImageGallery extends Component {
   render() {
     const { photos, bigPhoto } = this.props;
     return (
-      <ul className="ImageGallery">
+      <ul className={css.ImageGallery}>
         {photos.map(image => {
           return (
             <ImageGalleryItem

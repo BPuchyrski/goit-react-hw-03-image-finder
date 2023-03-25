@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
+import css from './Section.module.css'
 const { Component } = require('react');
 
 class Searchbar extends Component {
   render() {
     const { onSubmit } = this.props;
     return (
-      <header className="searchbar">
-        <form onSubmit={onSubmit} className="searchForm">
-          <button type="submit" className="SearchForm-button">
+      <header className={css.searchbar}>
+        <form onSubmit={onSubmit} className={css.searchForm}>
+          <button type="submit" className={css.SearchFormButton}>
             <span className="button-label">Search</span>
           </button>
 
           <input
             name="searchFormInput"
-            className="SearchForm-input"
+            className={css.SearchFormInput}
             type="text"
             autoComplete="off"
             autoFocus

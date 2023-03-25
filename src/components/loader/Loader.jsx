@@ -1,10 +1,11 @@
+import css from './Loader.module.css'
 import { BallTriangle } from 'react-loader-spinner';
 const { Component } = require('react');
 
 class Loader extends Component {
   render() {
     return (
-      <div className="loader">
+      <div className={css.loader}>
         <BallTriangle
           height={100}
           width={100}
