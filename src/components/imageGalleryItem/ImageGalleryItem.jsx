@@ -1,4 +1,4 @@
-import css from './ImageGalleryItem.module.css'
+import css from './ImageGalleryItem.module.css';
 import PropTypes from 'prop-types';
 const { Component } = require('react');
 
@@ -11,7 +11,7 @@ class ImageGalleryItem extends Component {
           className={css.ImageGalleryItemImage}
           src={imageURL}
           alt={imageTags}
-          name={imageLarge}
+          bigpicture={imageLarge}
         ></img>
       </li>
     );
@@ -24,5 +24,5 @@ ImageGalleryItem.propTypes = {
   imageURL: PropTypes.string,
   imageTags: PropTypes.string,
   onClick: PropTypes.func,
-  imageLarge: PropTypes.string
-}
+  imageLarge: PropTypes.string,
+};

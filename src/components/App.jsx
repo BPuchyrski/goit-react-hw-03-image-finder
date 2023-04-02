@@ -57,7 +57,8 @@ export class App extends Component {
   };
 
   getBigImg = e => {
-    this.setState({ bigImageModal: e.target.name });
+    console.log(e.target.attributes[3].value);
+    this.setState({ bigImageModal: e.target.attributes[3].value });
     this.modalToggle();
     console.log(this.state.bigImageModal);
   };
